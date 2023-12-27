@@ -34,11 +34,15 @@ export interface ApiError {
   message: string;
 }
 
-export const fetchData = async (): Promise<Vacancy[]> => {
+export const fetchData = async (search?: string[]): Promise<Vacancy[]> => {
   const url = "http://localhost:5000/vacancies";
 
   try {
-    const response: AxiosResponse<ApiResponse> = await axios.get(url);
+    const response: AxiosResponse<ApiResponse> = await axios.get(url, {
+      params: {
+        search,
+      },
+    });
     console.log("Server response:", response.data);
     if (Array.isArray(response.data)) {
       return response.data;

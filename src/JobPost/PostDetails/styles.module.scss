@@ -22,6 +22,7 @@
         width: 88px;
         height: 88px;
         margin: 0 20px 0 20px;
+        object-fit: contain;
     }
 
     &__company {
@@ -99,12 +100,11 @@
 }
 
 .selectedFiltersContainer{
-    position: absolute;
     display: flex;
-    top: 110px;
     max-width: 1091px;
     width: 100%;
     height: 72px;
+    margin: auto;
     padding: 10px;
     justify-content: space-between;
     border-radius: 5px;
@@ -196,16 +196,20 @@
             &__filters {
                 margin-left: 20px;
                 margin-top: 5px;
+                flex-wrap: wrap;
             }
         }
     }
 
-    @media screen and (max-width: 378px) { .selectedFiltersContainer{
-    position: absolute;
+    @media screen and (max-width: 378px) { 
+    .selectedFiltersContainer{
     display: flex;
-    top: 18px;
     max-width: 340px;
     width: 100%;
-    height: 36px;
+    height: auto;
+    margin: auto;
+    &__content {
+        flex-wrap: wrap;
+    }
     }
 }
